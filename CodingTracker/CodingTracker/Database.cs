@@ -25,7 +25,7 @@ internal static class Database
                         Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                         StartTime TEXT NOT NULL,
                         EndTime TEXT NOT NULL,
-                        Duration TEXT NOT NULL
+                        Duration INTEGER NOT NULL
                     )";
 
                 command.ExecuteNonQuery();
