@@ -1,14 +1,20 @@
 ﻿using Microsoft.Data.Sqlite;
+using System.Configuration;
 
 namespace CodingTracker;
 
 internal static class Database
 {
-    internal static void CreateDatabase(string connectionString)
+    private static readonly string _connectionString = ConfigurationManager.AppSettings.Get("Connectionstring") ?? 
+        throw new Exception("Key value pair doesn't exist in the config-file!");
+
+    private static readonly string _databasePath = ConfigurationManager.AppSettings.Get("DatabasePath") ?? 
+        throw new Exception("Key value pair doesn't exist in the config-file!");
+    internal static void CreateDatabase()
     {
-        if (!File.Exists("CodingTracker.db"))
+        if (!File.Exists(_databasePath))
         {
-            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            using (SqliteConnection connection = new SqliteConnection(_connectionString))
             {
                 connection.Open();
 

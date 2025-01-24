@@ -1,19 +1,13 @@
 ﻿using CodingTracker.Models;
 using Dapper;
 using Microsoft.Data.Sqlite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Configuration;
 
 namespace CodingTracker.Controllers;
 
-internal class CodingSessionController : BaseController
+internal class CodingSessionController
 {
-    public CodingSessionController(string connectionString) : base(connectionString)
-    {
-    }
+    protected readonly string _connectionString = ConfigurationManager.AppSettings.Get("Connectionstring") ?? throw new Exception("Key value pair doesn't exist in the config-file!");
 
     public List<CodingSession> GetAll()
     {
@@ -56,6 +50,11 @@ internal class CodingSessionController : BaseController
         }
     }
 
+    /// <summary>
+    /// Returns the number of rows affected
+    /// </summary>
+    /// <param name="codingSession"></param>
+    /// <returns></returns>
     public int Update(CodingSession codingSession)
     {
         using (var connection = new SqliteConnection(_connectionString))
@@ -68,6 +67,11 @@ internal class CodingSessionController : BaseController
         }
     }
 
+    /// <summary>
+    /// Returns the number of rows affected
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     public int Delete(int id)
     {
         using (var connection = new SqliteConnection(_connectionString))

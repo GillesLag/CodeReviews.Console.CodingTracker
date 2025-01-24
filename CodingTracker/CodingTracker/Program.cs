@@ -1,7 +1,7 @@
 ﻿using CodingTracker;
-using System.Configuration;
+using CodingTracker.UserInterface;
 
-string connectionString = ConfigurationManager.AppSettings.Get("Connectionstring") ?? throw new Exception("Key value pair doesn't exist in the config-file!");
+Database.CreateDatabase();
 
-Database.CreateDatabase(connectionString);
-
+UserMenu userMenu = new UserMenu();
+userMenu.ShowMenu();
