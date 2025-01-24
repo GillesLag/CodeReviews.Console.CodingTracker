@@ -9,7 +9,7 @@ namespace CodingTracker.Controllers;
 
 internal class BaseController
 {
-    private readonly string _connectionString;
+    protected readonly string _connectionString;
 
     public BaseController(string connectionString)
     {
