@@ -36,7 +36,9 @@ internal class UserMenu
                     break;
 
                 case MenuItems.Update:
+                    Update();
                     break;
+
                 case MenuItems.Delete:
                     break;
                 case MenuItems.Quit:
@@ -87,6 +89,13 @@ internal class UserMenu
         _controller.Add(session);
 
         //Console.WriteLine(duration.ToString(@"hh\:mm\:ss")); //Dit is hoe je een timespan format
+    }
+
+    private void Update()
+    {
+        Console.Clear();
+
+
     }
 
     private string ConvertDateToString(DateTime date)
