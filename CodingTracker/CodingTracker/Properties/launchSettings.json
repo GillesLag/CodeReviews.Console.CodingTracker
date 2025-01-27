@@ -2,7 +2,7 @@
   "profiles": {
     "CodingTracker": {
       "commandName": "Project",
-      "workingDirectory": "D:\\Projects\\CodingTracker\\CodingTracker\\CodingTracker"
+      "workingDirectory": "C:\\Users\\gilles.lagrilliere\\OneDrive - Codraft\\Documents\\C#-projects\\CodeReviews.Console.CodingTracker\\CodingTracker\\CodingTracker"
     }
   }
 }

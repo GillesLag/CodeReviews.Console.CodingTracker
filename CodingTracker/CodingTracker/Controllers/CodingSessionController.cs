@@ -59,7 +59,7 @@ internal class CodingSessionController
     {
         using (var connection = new SqliteConnection(_connectionString))
         {
-            string sql = "UPDATE CodingSession SET @StartTime, @EndTime, @Duration WHERE id = @Id";
+            string sql = "UPDATE CodingSession SET StartTime = @StartTime, EndTime = @EndTime, Duration = @Duration WHERE id = @Id";
 
             connection.Open();
 
@@ -82,5 +82,20 @@ internal class CodingSessionController
 
             return connection.Execute(sql, new { Id = id});
         }
+    }
+
+    internal bool Exists(int id)
+    {
+        using (var connection = new SqliteConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM CodingSession WHERE id = @Id";
+
+            connection.Open();
+
+            var reader = connection.ExecuteScalar(sql, new { Id = id });
+
+            return reader != null;
+        }
+
     }
 }
