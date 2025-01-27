@@ -72,6 +72,7 @@ internal static class UserInput
 
         Stopwatch stopwatch = Stopwatch.StartNew();
         stopwatch.Start();
+
         var startTime = DateTime.Now;
         startTime = new DateTime(
                 startTime.Ticks - (startTime.Ticks % TimeSpan.TicksPerSecond),
@@ -96,8 +97,7 @@ internal static class UserInput
 
         var duration = new TimeSpan(stopwatch.Elapsed.Ticks / TimeSpan.TicksPerSecond * TimeSpan.TicksPerSecond); //truncate the milliseconds
 
-        string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}",
-            duration.Hours, duration.Minutes, duration.Seconds);
+        string elapsedTime = $"{duration.Hours:00}:{duration.Minutes:00}:{duration.Seconds:00}";
         Console.WriteLine("Codingtime: " + elapsedTime);
         Console.ReadKey();
 
