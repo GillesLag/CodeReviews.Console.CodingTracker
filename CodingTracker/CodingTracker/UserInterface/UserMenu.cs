@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CodingTracker.Controllers;
+﻿using CodingTracker.Controllers;
 using CodingTracker.Enums;
-using CodingTracker.Models;
-using Spectre;
 using Spectre.Console;
 
 namespace CodingTracker.UserInterface;
